@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('bookings', 'App\Http\Controllers\BookingController');
+Route::resource('bookings', BookingController::class);
+Route::get('/rooms/{roomType?}', 'App\Http\Controllers\ShowRoomsController');
+Route::resource('room_types', 'App\Http\Controllers\RoomTypeController');
